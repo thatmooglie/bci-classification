@@ -46,7 +46,7 @@ fprintf('Accuracy: %.2f \n', corrGuess/(totalTrials/35))
 %%  Run FBCCA with filter bank 3
 corrGuess = 0;
 totalTrials = 40*6*35;
-nH = 4;
+nH = 1;
 ch = chIdx(end-2:end);
 for subj=1:35
         fprintf('Processing subject %.0f/35 subjects(%.2f%%)\n', subj, (subj/35)*100)

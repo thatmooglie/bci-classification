@@ -1,1 +1,3 @@
 # bci-classification
+
+A project
