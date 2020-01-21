@@ -2,9 +2,10 @@ clear all, close all
 addpath('C:\Users\Fabi\Desktop\Brain Computer Interface\Project\SSVEP-BCI-Data\')
 warning ('off','all');
 %Load data
-numSub=10;
+numSub=35;
 subInfo= importfile('subject_info_35_dataSets.txt',2,numSub+1);
 chIdx = [48 54 55 56 57 58 61 62 63];
+chIdx = [chIdx(8) chIdx(3) chIdx(4) chIdx(5)];
 %data=importSubjectfile(subjectInfo(1,1));
 data=zeros(numSub,length(chIdx),1500,40,6);
 
@@ -50,7 +51,7 @@ for sub=1:numSub
     fprintf('\nProcessing subject %.0f',sub)
     %Load subject file
     %Output data(channel,datapoint,target,block)
-    load(subInfo(sub,1),'-mat')
+    load(erase(string(subInfo(sub,1)), '0'),'-mat')
     %Exclude channels
     data = data(chIdx,skipT+1:(skipT+segL),:,:);
     
